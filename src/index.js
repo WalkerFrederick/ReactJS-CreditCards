@@ -10,7 +10,7 @@ ReactDOM.render(
 
 
 <div className="body">
-    <CreditCard/>
+    <CreditCard creditCardNumber={'0123456789876543'}/>
 </div>
 
 , document.getElementById('root'));

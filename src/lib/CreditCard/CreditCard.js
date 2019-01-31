@@ -5,8 +5,13 @@ class CreditCard extends React.Component{
     constructor(props){
         super(props);
 
+        //This will make sure that if the credit card doesn't have a number it will still display something
+        this.state = {
+            creditCardNumber: this.props.creditCardNumber ? this.props.creditCardNumber : 'XXXXXXXXXXXXXXXX',
+        }
     };
 
+    //This will break up a 16 digit number just like how it is on a real credit card
     deconstructNumber(number) {
         let output = '';
         for(let i = 0; i < number.length/4; i++){
@@ -18,7 +23,7 @@ class CreditCard extends React.Component{
     render(){
         return (
             <div className="CREDIT-CARD">
-                <div className="CREDIT-CARD-NUMBER">{this.deconstructNumber('0123456789876543')}</div>
+                <div className="CREDIT-CARD-NUMBER">{this.deconstructNumber(this.state.creditCardNumber)}</div>
                 <div className="CREDIT-CARD-NUMBER"></div>
                 <div className="CREDIT-CARD-NUMBER"></div>
             </div>
